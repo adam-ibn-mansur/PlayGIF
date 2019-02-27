@@ -91,12 +91,11 @@ public class PlayGif {
 		 "Important Prompt!!!",
 		 JOptionPane.QUESTION_MESSAGE,
 		 JOptionPane.YES_NO_OPTION);
+
+		 if (n == 0) {
+			 play.askForInfo();
+		 }//end if
+
 	} //end fxn
-
-	if (n == 0) {
-		play.askForInfo();
-	}//end if
-
-	}
 
 }//end prgm
