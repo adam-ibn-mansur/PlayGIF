@@ -9,8 +9,11 @@ Created 2019.20.02, at 15:40
 
 public class PlayGif {
 	private final int MAX = 5;
+	private int correctAnswers = 0;
+
 	private String name;
 	private int IDNumber;
+
 
 	private JLabel[] myImages;
 	private String[] imageNames;
@@ -18,17 +21,7 @@ public class PlayGif {
 
 	private JPanel panel;
 
-	public void askForInfo() {
-		name = JOptionPane.showInputDialog(frame,
-		"Please enter your name: ",
-		"Enter name");
-
-		IDNumber = Integer.parseInteger(JOptionPane.showInputDialog(frame,
-		"Please enter your 900 #: ",
-		"Enter 900 #,"));
-	} //end fxn
-
-	public void myImages() {
+	public void SLHS_GIFs() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 
@@ -56,11 +49,18 @@ public class PlayGif {
 		} //end for
 	} //end fxn
 
+	public void askForInfo() {
+		name = JOptionPane.showInputDialog(frame,
+		"Please enter your name: ",
+		"Enter name");
+
+		IDNumber = Integer.parseInteger(JOptionPane.showInputDialog(frame,
+		"Please enter your 900 #: ",
+		"Enter 900 #,"));
+	} //end fxn
+
 	//show GIFs and ask questions
-
 	public int GIFsAndQuestions() {
-		int correctAnswers = 0;
-
 		//Absent.gif
 		Object[] possibilities_one = {"Present", "Absent", "Current"};
 		studentAnswers[0] = (String)JOptionPane.showInputDialog(frame,
@@ -74,7 +74,7 @@ public class PlayGif {
 
 		if (studentAnswers[0].equals("Absent")) {
 			correctAnswers++;
-		} //end fxn
+		} //end if
 
 		//Afternoon.gif
 		Object[] possibilities_two = {"Morning", "Evening", "Afternoon"};
@@ -89,7 +89,7 @@ public class PlayGif {
 
 		if (studentAnswers[1].equals("Afternoon")) {
 			correctAnswers++;
-		} //end fxn
+		} //end if
 
 		//Again.gif
 		Object[] possibilities_three = {"Quit", "Again", "Start"};
@@ -104,7 +104,7 @@ public class PlayGif {
 
 		if (studentAnswers[2].equals("Again")) {
 			correctAnswers++;
-		} //end fxn
+		} //end if
 
 		//ASL.gif
 		Object[] possibilities_four = {"American Sign Language (ASL)", "British Sign Language (BSL)", "Chinese Sing Language (CSL)"};
@@ -119,7 +119,7 @@ public class PlayGif {
 
 		if (studentAnswers[3].equals("American Sign Language (ASL)")) {
 			correctAnswers++;
-		} //end fxn
+		} //end if
 
 		Object[] possibilities_five = {"Sad", "Excited", "Angry"};
 		studentAnswers[4] = (String)JOptionPane.showInputDialog(frame,
@@ -133,25 +133,23 @@ public class PlayGif {
 
 		if (studentAnswers[4].equals("Angry")) {
 			correctAnswers++;
-		} //end fxn
+		} //end if
 
 		return correctAnswers;
-
-	}
-	//Compar Answers
+	} //end fxn
 
 	public double outputGrade() {
 		double grade = 0.0;
 		grade = (this.GIFsAndQuestions() / imageNames.length) * 100;
+
 		return grade;
 	} //end fxn
 
 	public static void main (String[] args) {
 		PlayGif play = new PlayGif();
+		play.SLHS_GIFs();
 
 		play.askForInfo();
-
-
 
 		JOptionPane.showMessageDialog(frame,
 		name + " (" + IDNumber + "), Your grade for this quiz is " + play.outputGrade() + "%.",
