@@ -15,12 +15,10 @@ public class PlayGif {
 	private JLabel[] myImages;
 	private String[] imageNames;
 	private String[] studentAnswers;
-	private String[] correctAnswers;
 
 	private JPanel panel;
 
-	public void askForInfo()
-	{
+	public void askForInfo() {
 		name = JOptionPane.showInputDialog(frame,
 		"Please enter your name: ",
 		"Enter name");
@@ -55,22 +53,96 @@ public class PlayGif {
 			// adds the JLabel in position i in the JLabel
 			// array to your panel
 			panel.add(myImages[i]);
-		}
+		} //end for
 	} //end fxn
 
 	//show GIFs and ask questions
-	public GIFsAndQuestions() {
 
-		for (int i = 0; i < MAX; ) {
+	public int GIFsAndQuestions() {
+		int correctAnswers = 0;
 
-		}
+		//Absent.gif
+		Object[] possibilities_one = {"Present", "Absent", "Current"};
+		studentAnswers[0] = (String)JOptionPane.showInputDialog(frame,
+		panel.myImage[0],
+		"This ASL expression means:\n"
+    "Customized Dialog",
+    JOptionPane.PLAIN_MESSAGE,
+    icon,
+    possibilities,
+    "Absent");
+
+		if (studentAnswers[0].equals("Absent")) {
+			correctAnswers++;
+		} //end fxn
+
+		//Afternoon.gif
+		Object[] possibilities_two = {"Morning", "Evening", "Afternoon"};
+		studentAnswers[1] = (String)JOptionPane.showInputDialog(frame,
+		panel.myImage[1],
+		"This ASL expression means:\n"
+    "Customized Dialog",
+    JOptionPane.PLAIN_MESSAGE,
+    icon,
+    possibilities,
+    "Afternoon");
+
+		if (studentAnswers[1].equals("Afternoon")) {
+			correctAnswers++;
+		} //end fxn
+
+		//Again.gif
+		Object[] possibilities_three = {"Quit", "Again", "Start"};
+		studentAnswers[2] = (String)JOptionPane.showInputDialog(frame,
+		panel.myImage[2],
+		"This ASL expression means:\n"
+    "Customized Dialog",
+    JOptionPane.PLAIN_MESSAGE,
+    icon,
+    possibilities,
+    "Again");
+
+		if (studentAnswers[2].equals("Again")) {
+			correctAnswers++;
+		} //end fxn
+
+		//ASL.gif
+		Object[] possibilities_four = {"American Sign Language (ASL)", "British Sign Language (BSL)", "Chinese Sing Language (CSL)"};
+		studentAnswers[3] = (String)JOptionPane.showInputDialog(frame,
+		panel.myImage[3],
+		"This ASL expression means:\n"
+    "Customized Dialog",
+    JOptionPane.PLAIN_MESSAGE,
+    icon,
+    possibilities,
+    "American Sign Language (ASL)");
+
+		if (studentAnswers[3].equals("American Sign Language (ASL)")) {
+			correctAnswers++;
+		} //end fxn
+
+		Object[] possibilities_five = {"Sad", "Excited", "Angry"};
+		studentAnswers[4] = (String)JOptionPane.showInputDialog(frame,
+		panel.myImage[4],
+		"This ASL expression means:\n"
+    "Customized Dialog",
+    JOptionPane.PLAIN_MESSAGE,
+    icon,
+    possibilities,
+    "Angry");
+
+		if (studentAnswers[4].equals("Angry")) {
+			correctAnswers++;
+		} //end fxn
+
+		return correctAnswers;
 
 	}
 	//Compar Answers
 
 	public double outputGrade() {
 		double grade = 0.0;
-		grade =  / imageNames.length
+		grade = (this.GIFsAndQuestions() / imageNames.length) * 100;
 		return grade;
 	} //end fxn
 
@@ -82,7 +154,7 @@ public class PlayGif {
 
 
 		JOptionPane.showMessageDialog(frame,
-		name + " (" + IDNumber + "), Your grade for this quiz is " + play.outputGrade(),
+		name + " (" + IDNumber + "), Your grade for this quiz is " + play.outputGrade() + "%.",
 		"Quiz Grade",
 		JOptionPane.PLAIN_MESSAGE);
 
