@@ -8,29 +8,46 @@ Created 2019.20.02, at 15:40
 */
 
 public class PlayGif {
-	private final int NUM = 5;
+	private final int MAX = 5;
+	private String name;
+	private int IDNumber;
+
 	private JLabel[] myImages;
 	private String[] imageNames;
-	private String[] mySolutions;
+	private String[] studentAnswers;
+	private String[] correctAnswers;
+
 	private JPanel panel;
 
-	public MyImages() {
+	public void askForInfo()
+	{
+		name = JOptionPane.showInputDialog(frame,
+		"Please enter your name: ",
+		"Enter name");
+
+		IDNumber = Integer.parseInteger(JOptionPane.showInputDialog(frame,
+		"Please enter your 900 #: ",
+		"Enter 900 #,"));
+	} //end fxn
+
+	public void myImages() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 
 		panel = new JPanel();
 		this.add(panel);
 
-		imageNames = new String[NUM];
-		myImages = new JLabel[NUM];
+		imageNames = new String[MAX];
+		myImages = new JLabel[MAX];
 
-		imageNames[0] = "C:\\Users\\ahabil\\Work\\H5P\\American-Sign-Language.gif";
-		imageNames[1] = "C:\\Users\\ahabil\\Work\\H5P\\Angry.gif";
+		//If you download the .java to your personal computer, you should change the location.
+		imageNames[0] = "C:\\Users\\ahabil\\Work\\H5P\\Absent.gif";
+		imageNames[1] = "C:\\Users\\ahabil\\Work\\H5P\\Afternoon.gif";
 		imageNames[2] = "C:\\Users\\ahabil\\Work\\H5P\\Again (Repeat).gif";
-		imageNames[3] = "C:\\Users\\ahabil\\Work\\H5P\\Afternoon.gif";
-		imageNames[4] = "C:\\Users\\ahabil\\Work\\H5P\\Absent.gif";
+		imageNames[3] = "C:\\Users\\ahabil\\Work\\H5P\\American-Sign-Language.gif";
+		imageNames[4] = "C:\\Users\\ahabil\\Work\\H5P\\Angry.gif";
 
-		for (int i = 0; i < NUM; i++) {
+		for (int i = 0; i < MAX; i++) {
 			// adds a new JLabel to you JLabel array with the
 			// image loaded in
 			myImages[i] = new JLabel(new ImageIcon(imageNames[0]));
@@ -39,40 +56,47 @@ public class PlayGif {
 			// array to your panel
 			panel.add(myImages[i]);
 		}
+	} //end fxn
 
-		// adds a new JLabel with "Hello" to the panel.
-		panel.add(new JLabel("Hello"));
-	}
+	//show GIFs and ask questions
+	public GIFsAndQuestions() {
 
-	public StoreData(String name, int nineHun) {
-		HashMap<Integer, String> stuID = new HashMap<>();
-		stuID.put(nineHun, name);
-	}
+		for (int i = 0; i < MAX; ) {
 
-	public int rightOrWrong() {
-		mySolutions=  new String[NUM];
-
-		image names
-
+		}
 
 	}
+	//Compar Answers
 
-	public double outputGrade(int results) {
+	public double outputGrade() {
 		double grade = 0.0;
-		grade = results / imageNames.length
+		grade =  / imageNames.length
 		return grade;
-	}
+	} //end fxn
 
-]
 	public static void main (String[] args) {
 		PlayGif play = new PlayGif();
 
-		String name = JOptionPane.showInputDialog(frame, "Please enter your name: ", "Enter name");
-		int nineHun = Integer.parseInteger(JOptionPane.showInputDialog(frame, "Please enter your 900 #: ", "Enter 900 #,"));
+		play.askForInfo();
 
-		play.StoreData()
 
-		JOptionPane.showMessageDialog( frame, "Your grade for this quiz is " + play.outputGrade(), "Quiz Grade" );
+
+		JOptionPane.showMessageDialog(frame,
+		name + " (" + IDNumber + "), Your grade for this quiz is " + play.outputGrade(),
+		"Quiz Grade",
+		JOptionPane.PLAIN_MESSAGE);
+
+		int n = JOptionPane.showOptionDialog(frame,
+		 "Is there another student willing to try this?",
+		 "Important Prompt!!!",
+		 JOptionPane.QUESTION_MESSAGE,
+		 JOptionPane.YES_NO_OPTION);
+	} //end fxn
+
+	if (n == 0) {
+		play.askForInfo();
+	}//end if
+
 	}
 
-}
+}//end prgm
