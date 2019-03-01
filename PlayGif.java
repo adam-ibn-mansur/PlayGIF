@@ -3,6 +3,12 @@ import javax.swing.*;
 import java.lang.String;
 
 /*
+A Java program that displays 5 GIFs of a woman signing in ASL (American Sign Language).
+The user running it is prompted to give their name and student ID number, then answer
+the questions of what she is signing, and is graded for their answers.
+*/
+
+/*
 This script is courtesy of Adam Habil, #900832364
 Created 2019.20.02, at 15:40
 */
@@ -14,14 +20,14 @@ public class PlayGif {
 	private String name;
 	private int IDNumber;
 
-
 	private JLabel[] myImages;
 	private String[] imageNames;
 	private String[] studentAnswers;
 
 	private JPanel panel;
 
-	public void SLHS_GIFs() {
+	//calls the CreateGIFs function to make the .gif files into an array
+	public void CreateGIFs() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 
@@ -31,15 +37,15 @@ public class PlayGif {
 		imageNames = new String[MAX];
 		myImages = new JLabel[MAX];
 
-		//If you download the .java to your personal computer, you should change the location.
-		imageNames[0] = "C:\\Users\\ahabil\\Work\\H5P\\Absent.gif";
-		imageNames[1] = "C:\\Users\\ahabil\\Work\\H5P\\Afternoon.gif";
-		imageNames[2] = "C:\\Users\\ahabil\\Work\\H5P\\Again (Repeat).gif";
-		imageNames[3] = "C:\\Users\\ahabil\\Work\\H5P\\American-Sign-Language.gif";
-		imageNames[4] = "C:\\Users\\ahabil\\Work\\H5P\\Angry.gif";
+		//Loads the 5 .gif files to the imageName.
+		imageNames[0] = "Absent.gif";
+		imageNames[1] = "Afternoon.gif";
+		imageNames[2] = "Again (Repeat).gif";
+		imageNames[3] = "American-Sign-Language.gif";
+		imageNames[4] = "Angry.gif";
 
 		for (int i = 0; i < MAX; i++) {
-			// adds a new JLabel to you JLabel array with the
+			// adds a new JLabel to your JLabel array with the
 			// image loaded in
 			myImages[i] = new JLabel(new ImageIcon(imageNames[0]));
 
@@ -49,7 +55,7 @@ public class PlayGif {
 		} //end for
 	} //end fxn
 
-	public void askForInfo() {
+	public void AskForInfo() {
 		name = JOptionPane.showInputDialog(frame,
 		"Please enter your name: ",
 		"Enter name");
@@ -62,14 +68,14 @@ public class PlayGif {
 	//show GIFs and ask questions
 	public int GIFsAndQuestions() {
 		//Absent.gif
-		Object[] possibilities_one = {"Present", "Absent", "Current"};
-		studentAnswers[0] = (String)JOptionPane.showInputDialog(frame,
+		Object[] options_one = {"Present", "Absent", "Current"};
+		studentAnswers[0] = (String)JOptionPane.showOptionDialog(frame,
 		panel.myImage[0],
-		"This ASL expression means:\n"
+		"This ASL expression means:\n",
     "Customized Dialog",
     JOptionPane.PLAIN_MESSAGE,
-    icon,
-    possibilities,
+    null,
+    options_one,
     "Absent");
 
 		if (studentAnswers[0].equals("Absent")) {
@@ -77,14 +83,14 @@ public class PlayGif {
 		} //end if
 
 		//Afternoon.gif
-		Object[] possibilities_two = {"Morning", "Evening", "Afternoon"};
-		studentAnswers[1] = (String)JOptionPane.showInputDialog(frame,
+		Object[] options_two = {"Morning", "Evening", "Afternoon"};
+		studentAnswers[1] = (String)JOptionPane.showOptionDialog(frame,
 		panel.myImage[1],
-		"This ASL expression means:\n"
+		"This ASL expression means:\n",
     "Customized Dialog",
     JOptionPane.PLAIN_MESSAGE,
-    icon,
-    possibilities,
+    null,
+    options_two,
     "Afternoon");
 
 		if (studentAnswers[1].equals("Afternoon")) {
@@ -92,14 +98,14 @@ public class PlayGif {
 		} //end if
 
 		//Again.gif
-		Object[] possibilities_three = {"Quit", "Again", "Start"};
-		studentAnswers[2] = (String)JOptionPane.showInputDialog(frame,
+		Object[] options_three = {"Quit", "Again", "Start"};
+		studentAnswers[2] = (String)JOptionPane.showOptionDialog(frame,
 		panel.myImage[2],
-		"This ASL expression means:\n"
+		"This ASL expression means:\n",
     "Customized Dialog",
     JOptionPane.PLAIN_MESSAGE,
-    icon,
-    possibilities,
+    null,
+    options_three,
     "Again");
 
 		if (studentAnswers[2].equals("Again")) {
@@ -107,28 +113,28 @@ public class PlayGif {
 		} //end if
 
 		//ASL.gif
-		Object[] possibilities_four = {"American Sign Language (ASL)", "British Sign Language (BSL)", "Chinese Sing Language (CSL)"};
-		studentAnswers[3] = (String)JOptionPane.showInputDialog(frame,
+		Object[] options_four = {"American Sign Language (ASL)", "British Sign Language (BSL)", "Chinese Sing Language (CSL)"};
+		studentAnswers[3] = (String)JOptionPane.showOptionDialog(frame,
 		panel.myImage[3],
-		"This ASL expression means:\n"
+		"This ASL expression means:\n",
     "Customized Dialog",
     JOptionPane.PLAIN_MESSAGE,
-    icon,
-    possibilities,
+    null,
+    options_four,
     "American Sign Language (ASL)");
 
 		if (studentAnswers[3].equals("American Sign Language (ASL)")) {
 			correctAnswers++;
 		} //end if
 
-		Object[] possibilities_five = {"Sad", "Excited", "Angry"};
-		studentAnswers[4] = (String)JOptionPane.showInputDialog(frame,
+		Object[] options_five = {"Sad", "Excited", "Angry"};
+		studentAnswers[4] = (String)JOptionPane.showOptionDialog(frame,
 		panel.myImage[4],
-		"This ASL expression means:\n"
+		"This ASL expression means:\n",
     "Customized Dialog",
     JOptionPane.PLAIN_MESSAGE,
-    icon,
-    possibilities,
+    null,
+    options_five,
     "Angry");
 
 		if (studentAnswers[4].equals("Angry")) {
@@ -140,19 +146,19 @@ public class PlayGif {
 
 	public double outputGrade() {
 		double grade = 0.0;
-		grade = (this.GIFsAndQuestions() / imageNames.length) * 100;
+		grade = Math.floor( (this.GIFsAndQuestions() / MAX) * 100 );
 
 		return grade;
 	} //end fxn
 
 	public static void main (String[] args) {
 		PlayGif play = new PlayGif();
-		play.SLHS_GIFs();
-
-		play.askForInfo();
+		play.CreateGIFs();
+		play.AskForInfo();
+		double yourGrade = play.outputGrade();
 
 		JOptionPane.showMessageDialog(frame,
-		name + " (" + IDNumber + "), Your grade for this quiz is " + play.outputGrade() + "%.",
+		name + " (" + IDNumber + "), Your grade for this quiz is " + yourGrade + "%.",
 		"Quiz Grade",
 		JOptionPane.PLAIN_MESSAGE);
 
@@ -161,11 +167,9 @@ public class PlayGif {
 		 "Important Prompt!!!",
 		 JOptionPane.QUESTION_MESSAGE,
 		 JOptionPane.YES_NO_OPTION);
-
+		 //yes = 0, no = 1;
 		 if (n == 0) {
-			 play.askForInfo();
+			 play.AskForInfo();
 		 }//end if
-
 	} //end fxn
-
 }//end prgm
