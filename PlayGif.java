@@ -56,7 +56,7 @@ public class PlayGif {
 	} //end fxn
 
 	public void AskForInfo() {
-		name = JOptionPane.showInputDialog(frame,
+		name = (String)JOptionPane.showInputDialog(frame,
 		"Please enter your name: ",
 		"Enter name");
 
@@ -147,7 +147,6 @@ public class PlayGif {
 	public double outputGrade() {
 		double grade = 0.0;
 		grade = Math.floor( (this.GIFsAndQuestions() / MAX) * 100 );
-
 		return grade;
 	} //end fxn
 
