@@ -146,7 +146,7 @@ public class PlayGif {
 
 	public double outputGrade() {
 		double grade = 0.0;
-		grade = (this.GIFsAndQuestions() / imageNames.length) * 100;
+		grade = Math.floor( (this.GIFsAndQuestions() / MAX) * 100 );
 
 		return grade;
 	} //end fxn
