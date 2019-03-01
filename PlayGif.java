@@ -155,9 +155,10 @@ public class PlayGif {
 		PlayGif play = new PlayGif();
 		play.CreateGIFs();
 		play.AskForInfo();
+		double yourGrade = play.outputGrade();
 
 		JOptionPane.showMessageDialog(frame,
-		name + " (" + IDNumber + "), Your grade for this quiz is " + play.outputGrade() + "%.",
+		name + " (" + IDNumber + "), Your grade for this quiz is " + yourGrade + "%.",
 		"Quiz Grade",
 		JOptionPane.PLAIN_MESSAGE);
 
