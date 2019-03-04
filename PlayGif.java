@@ -62,11 +62,13 @@ public class PlayGif {
 
 		IDNumber = Integer.parseInteger(JOptionPane.showInputDialog(frame,
 		"Please enter your 900 #: ",
-		"Enter 900 #,"));
+		"Enter 900 #"));
+
+		this.GIFsAndQuestions()
 	} //end fxn
 
 	//show GIFs and ask questions
-	public int GIFsAndQuestions() {
+	public void GIFsAndQuestions() {
 		//Absent.gif
 		Object[] options_one = {"Present", "Absent", "Current"};
 		studentAnswers[0] = (String)JOptionPane.showOptionDialog(frame,
@@ -140,13 +142,11 @@ public class PlayGif {
 		if (studentAnswers[4].equals("Angry")) {
 			correctAnswers++;
 		} //end if
-
-		return correctAnswers;
 	} //end fxn
 
 	public double outputGrade() {
 		double grade = 0.0;
-		grade = Math.floor( (this.GIFsAndQuestions() / MAX) * 100 );
+		grade = Math.floor( (correctAnswers / MAX) * 100 );
 		return grade;
 	} //end fxn
 
