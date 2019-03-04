@@ -64,7 +64,7 @@ public class PlayGif {
 		"Please enter your 900 #: ",
 		"Enter 900 #"));
 
-		this.GIFsAndQuestions()
+		this.GIFsAndQuestions();
 	} //end fxn
 
 	//show GIFs and ask questions
@@ -157,7 +157,7 @@ public class PlayGif {
 		double yourGrade = play.outputGrade();
 
 		JOptionPane.showMessageDialog(frame,
-		name + " (" + IDNumber + "), Your grade for this quiz is " + yourGrade + "%.",
+		name + " (" + IDNumber + "), Your grade for this quiz is " + yourGrade + "%",
 		"Quiz Grade",
 		JOptionPane.PLAIN_MESSAGE);
 
