@@ -157,7 +157,7 @@ public class PlayGif {
 		double yourGrade = play.outputGrade();
 
 		JOptionPane.showMessageDialog(frame,
-		name + " (" + IDNumber + "), Your grade for this quiz is " + yourGrade + "%.",
+		name + " (" + IDNumber + "), Your grade for this quiz is " + yourGrade + "%",
 		"Quiz Grade",
 		JOptionPane.PLAIN_MESSAGE);
 
