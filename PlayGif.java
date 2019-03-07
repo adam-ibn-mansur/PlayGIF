@@ -72,7 +72,7 @@ public class PlayGif {
 		//Absent.gif
 		Object[] options_one = {"Present", "Absent", "Current"};
 		studentAnswers[0] = (String)JOptionPane.showOptionDialog(frame,
-		panel.myImage[0],
+		panel.myImages[0],
 		"This ASL expression means:\n",
     "Customized Dialog",
     JOptionPane.PLAIN_MESSAGE,
@@ -87,7 +87,7 @@ public class PlayGif {
 		//Afternoon.gif
 		Object[] options_two = {"Morning", "Evening", "Afternoon"};
 		studentAnswers[1] = (String)JOptionPane.showOptionDialog(frame,
-		panel.myImage[1],
+		panel.myImages[1],
 		"This ASL expression means:\n",
     "Customized Dialog",
     JOptionPane.PLAIN_MESSAGE,
@@ -102,7 +102,7 @@ public class PlayGif {
 		//Again.gif
 		Object[] options_three = {"Quit", "Again", "Start"};
 		studentAnswers[2] = (String)JOptionPane.showOptionDialog(frame,
-		panel.myImage[2],
+		panel.myImages[2],
 		"This ASL expression means:\n",
     "Customized Dialog",
     JOptionPane.PLAIN_MESSAGE,
@@ -117,7 +117,7 @@ public class PlayGif {
 		//ASL.gif
 		Object[] options_four = {"American Sign Language (ASL)", "British Sign Language (BSL)", "Chinese Sing Language (CSL)"};
 		studentAnswers[3] = (String)JOptionPane.showOptionDialog(frame,
-		panel.myImage[3],
+		panel.myImages[3],
 		"This ASL expression means:\n",
     "Customized Dialog",
     JOptionPane.PLAIN_MESSAGE,
@@ -131,7 +131,7 @@ public class PlayGif {
 
 		Object[] options_five = {"Sad", "Excited", "Angry"};
 		studentAnswers[4] = (String)JOptionPane.showOptionDialog(frame,
-		panel.myImage[4],
+		panel.myImages[4],
 		"This ASL expression means:\n",
     "Customized Dialog",
     JOptionPane.PLAIN_MESSAGE,
